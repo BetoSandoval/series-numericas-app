@@ -11,9 +11,11 @@ import {
 
 const VisualComponentForm = () => {
   const [numeroN, setNumeroN] = useState("");
+  const [isvalidData, setIsValidData] = useState(true);
 
   const handleChange = (event) => {
     setNumeroN(event.target.value);
+    setIsValidData(!/^\d+$/.test(event.target.value));
   };
 
   const handleSubmit = (event) => {
@@ -43,7 +45,12 @@ const VisualComponentForm = () => {
                 <FormHelperText>
                   Los números naturales son aquellos enteros no negativos
                 </FormHelperText>
-                <Button type="submit" color="primary" data-testid="Submit">
+                <Button 
+                  type="submit" 
+                  color="primary" 
+                  data-testid="Submit"
+                  disabled={isvalidData}
+                >
                   Primary
                 </Button>
             </FormControl>
