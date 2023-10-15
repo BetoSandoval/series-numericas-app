@@ -1,4 +1,4 @@
-import VisualComponentForm from './components/VisualComponentForm/VisualComponentForm'; 
+import VisualComponentForm from './components/VisualComponentForm'; 
 
 const App = () => {
   return (
