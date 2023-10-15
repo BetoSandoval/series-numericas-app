@@ -1,7 +1,7 @@
 import {
   calculateTriangularNumber,
-  CalculateFibonacciNumber,
-  isPrimeNumber,
+  calculateFibonacciNumber,
+  primeNumber
 } from "./seriesCalculator";
 import { describe, test, expect } from "@jest/globals";
 
@@ -20,55 +20,56 @@ describe("calculate three diferents series", () => {
   });
 
   test("Calculate the Fibonacci sequence from 1 to 10 correctly", () => {
-    expect(CalculateFibonacciNumber(1)).toBe(1);
-    expect(CalculateFibonacciNumber(2)).toBe(1);
-    expect(CalculateFibonacciNumber(3)).toBe(2);
-    expect(CalculateFibonacciNumber(4)).toBe(3);
-    expect(CalculateFibonacciNumber(5)).toBe(5);
-    expect(CalculateFibonacciNumber(6)).toBe(8);
-    expect(CalculateFibonacciNumber(7)).toBe(13);
-    expect(CalculateFibonacciNumber(8)).toBe(21);
-    expect(CalculateFibonacciNumber(9)).toBe(34);
-    expect(CalculateFibonacciNumber(10)).toBe(55);
+    expect(calculateFibonacciNumber(1)).toBe(1);
+    expect(calculateFibonacciNumber(2)).toBe(1);
+    expect(calculateFibonacciNumber(3)).toBe(2);
+    expect(calculateFibonacciNumber(4)).toBe(3);
+    expect(calculateFibonacciNumber(5)).toBe(5);
+    expect(calculateFibonacciNumber(6)).toBe(8);
+    expect(calculateFibonacciNumber(7)).toBe(13);
+    expect(calculateFibonacciNumber(8)).toBe(21);
+    expect(calculateFibonacciNumber(9)).toBe(34);
+    expect(calculateFibonacciNumber(10)).toBe(55);
   });
 
-  test("Verificar que 2 es un número primo", () => {
-    expect(isPrimeNumber(1)).toBe(false);
+  test('Calculating the 1st prime number', () => {
+    expect(primeNumber(1)).toBe(2);
   });
 
-  test("Verificar que 2 es un número primo", () => {
-    expect(isPrimeNumber(2)).toBe(true);
+  test('Calculating the 2nd prime number', () => {
+    expect(primeNumber(2)).toBe(3);
   });
 
-  test("Verificar que 3 es un número primo", () => {
-    expect(isPrimeNumber(3)).toBe(true);
+  test('Calculating the 3rd prime number', () => {
+    expect(primeNumber(3)).toBe(5);
   });
 
-  test("Verificar que 4 no es un número primo", () => {
-    expect(isPrimeNumber(4)).toBe(false);
+  test('Calculating the 4th prime number', () => {
+    expect(primeNumber(4)).toBe(7);
   });
 
-  test("Verificar que 5 es un número primo", () => {
-    expect(isPrimeNumber(5)).toBe(true);
+  test('Calculating the 5th prime number', () => {
+    expect(primeNumber(5)).toBe(11);
   });
 
-  test("Verificar que 6 no es un número primo", () => {
-    expect(isPrimeNumber(6)).toBe(false);
+  test('Calculating the 6th prime number', () => {
+    expect(primeNumber(6)).toBe(13);
   });
 
-  test("Verificar que 7 es un número primo", () => {
-    expect(isPrimeNumber(7)).toBe(true);
+  test('Calculating the 7th prime number', () => {
+    expect(primeNumber(7)).toBe(17);
   });
 
-  test("Verificar que 8 no es un número primo", () => {
-    expect(isPrimeNumber(8)).toBe(false);
+  test('Calculating the 8th prime number', () => {
+    expect(primeNumber(8)).toBe(19);
   });
 
-  test("Verificar que 9 no es un número primo", () => {
-    expect(isPrimeNumber(9)).toBe(false);
+  test('Calculating the 9th prime number', () => {
+    expect(primeNumber(9)).toBe(23);
   });
 
-  test("Verificar que 10 no es un número primo", () => {
-    expect(isPrimeNumber(10)).toBe(false);
+  test('Calculating the 10th prime number', () => {
+    expect(primeNumber(10)).toBe(29);
   });
+
 });

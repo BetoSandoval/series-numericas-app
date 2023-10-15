@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { 
   Box, 
@@ -8,19 +9,21 @@ import {
   Input,
   FormHelperText
 } from "@mui/material";
+import useDataCalculation from "../../hooks/useDataCalculation";
 
 const VisualComponentForm = () => {
   const [numeroN, setNumeroN] = useState("");
   const [isvalidData, setIsValidData] = useState(true);
+  const { handleSubmit } = useDataCalculation();
 
   const handleChange = (event) => {
     setNumeroN(event.target.value);
     setIsValidData(!/^\d+$/.test(event.target.value));
   };
 
-  const handleSubmit = (event) => {
+  const formSubmit = (event) => {
     event.preventDefault();
-    console.log(numeroN);
+    handleSubmit(numeroN);
   };
 
   return (
@@ -38,7 +41,11 @@ const VisualComponentForm = () => {
           <li>Sucesión de Fibonacci</li>
         </ul>
         <div>
-          <Box component="form" onSubmit={handleSubmit} sx={{ width: "25ch" }}>
+          <Box 
+            component="form" 
+            onSubmit={ formSubmit  }
+            sx={{ width: "25ch" }}
+          >
             <FormControl>
                 <InputLabel>Ingresa el número N</InputLabel>
                 <Input  onChange={handleChange} data-testid="numeroN"/>
