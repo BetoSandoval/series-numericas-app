@@ -1,20 +1,22 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import { 
-  Box, 
-  InputLabel, 
-  Card, 
-  Button, 
+import {
+  Box,
+  InputLabel,
+  Card,
+  Button,
   FormControl,
   Input,
-  FormHelperText
+  FormHelperText,
 } from "@mui/material";
 import useDataCalculation from "../../hooks/useDataCalculation";
+import ResultComponent from "../ResultComponent/ResultComponent";
 
 const VisualComponentForm = () => {
-  const [numeroN, setNumeroN] = useState("");
+  const [numeroN, setNumeroN] = useState(null);
   const [isvalidData, setIsValidData] = useState(true);
-  const { handleSubmit } = useDataCalculation();
+  const [showModal, setShowModal] = useState(false);
+  const { handleSubmit, sumResult } = useDataCalculation();
 
   const handleChange = (event) => {
     setNumeroN(event.target.value);
@@ -24,7 +26,13 @@ const VisualComponentForm = () => {
   const formSubmit = (event) => {
     event.preventDefault();
     handleSubmit(numeroN);
+    setShowModal(true);
   };
+
+  const handleClick = () => {
+    setShowModal(false);
+  };
+  
 
   return (
     <div>
@@ -41,29 +49,30 @@ const VisualComponentForm = () => {
           <li>Sucesión de Fibonacci</li>
         </ul>
         <div>
-          <Box 
-            component="form" 
-            onSubmit={ formSubmit  }
-            sx={{ width: "25ch" }}
-          >
+          <Box component="form" onSubmit={formSubmit} sx={{ width: "25ch" }}>
             <FormControl>
-                <InputLabel>Ingresa el número N</InputLabel>
-                <Input  onChange={handleChange} data-testid="numeroN"/>
-                <FormHelperText>
-                  Los números naturales son aquellos enteros no negativos
-                </FormHelperText>
-                <Button 
-                  type="submit" 
-                  color="primary" 
-                  data-testid="Submit"
-                  disabled={isvalidData}
-                >
-                  Primary
-                </Button>
+              <InputLabel>Ingresa el número N</InputLabel>
+              <Input onChange={handleChange} data-testid="numeroN" />
+              <FormHelperText>
+                Los números naturales son aquellos enteros no negativos
+              </FormHelperText>
+              <Button
+                type="submit"
+                color="primary"
+                data-testid="Submit"
+                disabled={isvalidData}
+              >
+                Primary
+              </Button>
             </FormControl>
           </Box>
         </div>
       </Card>
+      <ResultComponent
+        result={sumResult}
+        showModal={showModal}
+        handleClick={handleClick}
+      />
     </div>
   );
 };
