@@ -35,37 +35,42 @@ const VisualComponentForm = () => {
   
 
   return (
-    <div>
-      <h1>¡Bienvenido!</h1>
-      <Card>
-        <p>
-          En esta aplicación podras calcular el <b>n+1ésimo</b> elemento nueva
-          serie numérica, que combina elementos de las siguientes tres series
-          numéricas.
-        </p>
-        <ul>
-          <li>Número primo</li>
-          <li>Número triangular</li>
-          <li>Sucesión de Fibonacci</li>
-        </ul>
-        <div>
-          <Box component="form" onSubmit={formSubmit} sx={{ width: "25ch" }}>
-            <FormControl>
-              <InputLabel>Ingresa el número N</InputLabel>
-              <Input onChange={handleChange} data-testid="numeroN" />
-              <FormHelperText>
-                Los números naturales son aquellos enteros no negativos
-              </FormHelperText>
-              <Button
-                type="submit"
-                color="primary"
-                data-testid="Submit"
-                disabled={isvalidData}
-              >
-                Primary
-              </Button>
-            </FormControl>
-          </Box>
+    <div className="flex justify-around flex-col items-center h-screen">
+      <h1 className="text-4xl">¡Bienvenido!</h1>
+      <Card sx={{ maxWidth: 500, height: 500 }} className="bg-slate-100">
+        <div 
+          className=" p-2.5 bg-slate-100 flex justify-around flex-col items-center h-full text-base text-justify"
+        >
+          <p>
+            En esta aplicación podras calcular el <b>n+1ésimo</b> elemento nueva
+            serie numérica, que combina elementos de las siguientes tres series
+            numéricas.
+          </p>
+          <ul>
+            <li>Número primo</li>
+            <li>Número triangular</li>
+            <li>Sucesión de Fibonacci</li>
+          </ul>
+          <div>
+            <Box component="form" onSubmit={formSubmit} sx={{ width: "25ch" }}>
+              <FormControl>
+                <InputLabel>Ingresa el número N</InputLabel>
+                <Input onChange={handleChange} data-testid="numeroN" />
+                <FormHelperText>
+                  Los números naturales son aquellos enteros no negativos
+                </FormHelperText>
+                <Button
+                  type="submit"
+                  color="primary"
+                  data-testid="Submit"
+                  disabled={isvalidData}
+                  variant="contained"
+                >
+                  Calcular
+                </Button>
+              </FormControl>
+            </Box>
+          </div>
         </div>
       </Card>
       <ResultComponent
