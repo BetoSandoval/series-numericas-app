@@ -13,6 +13,7 @@ const ResultComponent = ({ result, showModal, handleClick }) => {
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
+        height: 250
     };
 
   return (
@@ -23,19 +24,20 @@ const ResultComponent = ({ result, showModal, handleClick }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            El resultado es:
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            El resultado es {result}
-          </Typography>
-          <Button
-            onClick={handleClick}
-            color="primary"
-            variant="contained"
-          >
-            Cerrar
-          </Button>
+          <div className="flex justify-around flex-col items-center h-full">
+            <Typography id="modal-modal-description" sx={{ fontSize: 20 }}>
+              El resultado es: <b>{result}</b>
+            </Typography>
+            <Button
+              onClick={handleClick}
+              color="primary"
+              variant="contained"
+              size="medium"
+            >
+              Cerrar
+            </Button>
+
+          </div>
         </Box>
       </Modal>
     </div>

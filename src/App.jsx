@@ -2,7 +2,7 @@ import VisualComponentForm from './components/VisualComponentForm';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="bg-slate-200 h-screen">
     <VisualComponentForm/>
   </div>
   )
